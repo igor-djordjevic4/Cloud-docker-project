@@ -1,0 +1,109 @@
+# --- OS & editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+.idea/
+*.swp
+*.swo
+
+# --- Python build/artifacts ---
+__pycache__/
+*.py[cod]
+*$py.class
+.build/
+build/
+dist/
+wheels/
+*.egg-info/
+.eggs/
+*.egg
+
+# --- Virtual envs & Python version managers ---
+.venv/
+venv/
+env/
+.pyenv/
+.python-version
+.uv/
+uv.lock.cache/
+
+# --- Dependency managers (do NOT ignore lock files you intend to commit) ---
+# Pipenv virtualenvs are usually outside repo; if local, ignore:
+pipenv/
+# Poetry keeps venv in .venv (already ignored)
+
+# --- Testing & coverage ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache/
+
+# --- Type checkers / linters ---
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pyright/
+.ruff_cache/
+
+# --- Logs & runtime ---
+*.log
+logs/
+instance/
+run/
+tmp/
+celerybeat-schedule
+*.pid
+
+# --- Env & secrets (keep out of git) ---
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# --- Databases & state ---
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-shm
+*.db-wal
+
+# --- FastAPI / Uvicorn specific (runtime files) ---
+# Gunicorn/uvicorn access/error logs often in logs/ already ignored
+
+# --- Alembic ---
+# (migrations/ should be committed; if you generate cache, ignore it)
+alembic.ini.local
+alembic/versions/__pycache__/
+
+# --- Docker ---
+*.tar
+.docker/
+docker-compose.override.yml
+
+# --- Node (if you have a small JS frontend for docs/admin) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+.svelte-kit/
+dist-ssr/
+.vite/
+vite.svg
+
+# --- Jupyter (if you used notebooks for experiments) ---
+.ipynb_checkpoints/
+*.ipynb
+
+# --- Misc tools ---
+coverage.xml
+pytestdebug.log

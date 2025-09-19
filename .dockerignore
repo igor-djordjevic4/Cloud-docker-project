@@ -1,0 +1,91 @@
+# --- VCS & editor ---
+.git
+.gitignore
+.gitattributes
+.vscode
+.idea
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- Python artefakti ---
+__pycache__/
+*.py[cod]
+*$py.class
+.build/
+build/
+dist/
+wheels/
+*.egg-info/
+.eggs/
+*.egg
+
+# --- Virtuelna okruženja & menadžeri ---
+.venv/
+venv/
+env/
+.pyenv/
+.python-version
+.uv/
+uv.lock.cache/
+
+# --- Testovi & coverage ---
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+pytestdebug.log
+
+# --- Tip checkeri / linteri ---
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pyright/
+.ruff_cache/
+
+# --- Logovi & privremeni fajlovi ---
+*.log
+logs/
+tmp/
+run/
+instance/
+*.pid
+
+# --- Tajne i env fajlovi (NE slati u image) ---
+.env
+.env.*
+!/.env.example
+*.key
+*.pem
+
+# --- Baze podataka i stanje ---
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-shm
+*.db-wal
+
+# --- Docker / Compose lokalno ---
+.docker/
+docker-compose*.yml
+*.tar
+
+# --- Frontend (ako postoji u monorepu) ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.next/
+.vite/
+dist/
+.svelte-kit/
+
+# --- Jupyter / dokumentacija ---
+.ipynb_checkpoints/
+*.ipynb
+docs/

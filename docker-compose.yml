@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  web:
+    container_name: fastapi_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app       # kod aplikacije (hot reload)
+      - ./data:/app/data # folder gde SQLite čuva bazu
+    networks:
+      - app_network
+    restart: always
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  data:
+
+networks:
+  app_network:
+    driver: bridge
