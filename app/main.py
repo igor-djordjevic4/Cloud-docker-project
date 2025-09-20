@@ -6,4 +6,8 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="My Fast Api Project")
 
+@app.get("/")
+def health():
+    return {"status": "ok"}
+
 app.include_router(api_router)

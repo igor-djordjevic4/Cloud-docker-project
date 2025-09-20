@@ -9,8 +9,9 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./app:/app         
-      - ./data:/app/data   
+      - ./app:/app/app        
+      - ./data:/app/data  
+      - uploads_vol:/app/uploads
     env_file:
       - ./.env             
     networks:
@@ -35,3 +36,5 @@ services:
 networks:
   app_network:
     driver: bridge
+volumes:
+  uploads_vol: {}
