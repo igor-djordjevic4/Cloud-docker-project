@@ -1,5 +1,5 @@
 from typing import List, Optional
-from fastapi import APIRouter, Form, HTTPException, Depends
+from fastapi import APIRouter, Form, HTTPException, Depends, Query
 from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.schemas.comments import CommentCreate, CommentOut
@@ -35,15 +35,15 @@ def read_posts(post_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail= f"Post was not found {post_id}")
     return post
 
-# GET /posts?user_id=1&title=hello    
+# GET /posts?user_id=1&title=hello
 @router.get("/posts", response_model=List[PostOut])
-def get_posts(db: Session = Depends(get_db)):
-    posts =  get_posts_service(db)
-    
-    if not posts:
-        raise HTTPException(404)
-    
-    return posts
+def get_posts(
+    user_id: Optional[int] = Query(None),
+    title: Optional[str] = Query(None),
+    db: Session = Depends(get_db),
+):
+    posts = get_posts_service(user_id, title, db)
+    return posts  # vrati [] ako nema postova (nema 404)
     
 @router.get("/users/{user_id}/posts", response_model = List[PostOut] )
 def get_all_posts_by_user(user_id: int, db:Session = Depends(get_db)):

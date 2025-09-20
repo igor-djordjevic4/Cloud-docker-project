@@ -19,8 +19,8 @@ def create_post(user_id: int, post: PostCreate, db: Session):
 def read_post(post_id: int, db: Session):
     return db.query(Post).filter(Post.id == post_id).first()
     
-def get_all_posts( db: Session):
-    return db.query(Post).all()
+def get_all_posts(user_id: int, db: Session):
+    return db.query(Post).filter(Post.user_id == user_id).all()
 
 def get_posts_service(user_id: Optional[int], title: Optional [str], db: Session):
     
